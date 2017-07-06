@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <package name="struts" extends="struts-default" strict-method-invocation="false">
+        <action name="login" class="org.action.UserAction" method="login">
+            <result name="login">/index.jsp</result>
+        </action>
+
+        <!--<action name="login2" class="org.vs.ValueStackDemoAction" method="login2">
+            <result name="login2">/index2.jsp</result>
+        </action>
+
+        <action name="login3" class="org.vs.ValueStackDemoAction" method="login3">
+            <result name="login3">/index3.jsp</result>
+        </action>-->
+
+        <!--这里的“*”号指的就是method中的{1}。-->
+        <action name="login_*" class="org.vs.ValueStackDemoAction" method="{1}">
+            <result name="success">{1}.jsp</result>
+        </action>
+        <action name="test" class="org.vs.ValueStackDemoAction" method="test">
+            <result name="test">/index2.jsp</result>
+        </action>
+
+    </package>
+</struts>

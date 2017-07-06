@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <constant name="struts.action.extension" value="action,com"/>
+    <package name="pkg1" extends="struts-default" strict-method-invocation="false">
+        <action name="user_*" class="org.demo.action.UserAction" method="{1}">
+            <!--重定向，如果是重定向过去的，那作用域里的值就娶不到-->
+            <!--<result name="add" type="redirect">/index.jsp</result>-->
+            <!--默认是转发，可以不写-->
+            <result type="dispatcher">/index.jsp</result>
+        </action>
+    </package>
+</struts>

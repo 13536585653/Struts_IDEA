@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+    <constant name="struts.devMode" value="true" />
+    <!--struts常量配置，相当于一个全局设置-->
+    <!--配置struts能处理的请求后缀名-->
+    <constant name="struts.action.extension" value="do,action"/>
+
+    <!--配置一个package用于管理不同的action配置-->
+    <package name="struts" extends="struts-default">
+        <!--在package中配置action信息-->
+        <!--name对应请求的url，class指定action类的完整类名,method指定方法-->
+        <action name="hello" class="org.ch01.action.HelloAction" method="execute">
+            <!--响应结果集-->
+            <result name="success">/index.jsp</result>
+        </action>
+    </package>
+</struts>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!--父模块的坐标-->
+    <groupId>org.nf</groupId>
+    <artifactId>module-parent</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <!--父模块打包的方式为pom，表示将被子模块进行依赖-->
+    <packaging>pom</packaging>
+    <!--子模块（聚合），打包的时候只需要打包父类模块，那么只需要在module里面指定子模块的相对路径-->
+    <modules>
+        <module>ch01</module>
+        <module>ch02</module>
+        <module>ch03</module>
+        <module>ch04</module>
+        <module>ch05</module>
+        <module>ch06</module>
+        <module>ch07</module>
+        <module>ch08</module>
+        <module>ch09</module>
+        <module>ch10</module>
+        <module>ch11</module>
+        <module>ch12</module>
+        <module>ch13</module>
+        <module>use struts to login</module>
+        <module>sms_demo</module>
+        <module>verification_code</module>
+        <module>cross-domain_demo</module>
+    </modules>
+
+
+    <properties>
+        <!-- 配置控制台的编码格式 -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- 配置控制台输出参数的编码格式 -->
+        <argLine>-Dfile.encoding=UTF-8</argLine>
+    </properties>
+    <!-- 配置maven插件 -->
+    <build>
+        <plugins>
+            <plugin>
+            <!-- 编译插件的名称 -->
+            <artifactId>maven-compiler-plugin</artifactId>
+            <!--编译插件的配置信息 -->
+            <configuration>
+                <target>1.8</target>
+                <source>1.8</source>
+                <encoding>UTF-8</encoding>
+            </configuration>
+        </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <warSourceDirectory>web</warSourceDirectory>
+                    <webXml>web/WEB-INF/web.xml</webXml>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <!-- 配置依赖 -->
+    <dependencies>
+        <!-- 添加依赖配置 -->
+        <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+            <!--项目打包时会忽略此依赖-->
+            <scope>provided</scope>
+        </dependency>
+        <!--Struts-json依赖-->
+        <dependency>
+            <groupId>org.apache.struts</groupId>
+            <artifactId>struts2-json-plugin</artifactId>
+            <version>2.5.8</version>
+        </dependency>
+        <!-- dependency里面指定需要依赖的项目或jar文件的GAV坐标 -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+        </dependency>
+        <!-- mysql驱动 -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.35</version>
+        </dependency>
+        <!-- 配置hibernate -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>5.0.11.Final</version>
+        </dependency>
+        <!-- 配置JPA -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>5.0.11.Final</version>
+        </dependency>
+        <!-- 配置c3p0连接池 -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-c3p0</artifactId>
+            <version>5.0.11.Final</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.struts/struts2-spring-plugin -->
+        <dependency>
+            <groupId>org.apache.struts</groupId>
+            <artifactId>struts2-core</artifactId>
+            <version>2.5.8</version>
+        </dependency>
+    </dependencies>
+</project>

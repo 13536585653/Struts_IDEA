@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <package name="pkg1" extends="json-default">
+
+        <!--用户登录-->
+        <action name="login" class="org.ch12.action.UserAction" method="login">
+            <!--解决重复提交的最简单办法就是使用重定向-->
+            <!--<result type="redirect">/index.jsp</result>-->
+            <!--第二种办法就是同样使用转发，但是结合令牌的机制解决重复提交
+            struts2提供了令牌的拦截器叫TokenInterceptor，只需要在action中引用一下拦截器-->
+            <interceptor-ref name="token"/>
+            <!--在引用一下默认的拦截器-->
+            <interceptor-ref name="defaultStack"/>
+            <!--在结果集中配置一个令牌要跳转的页面-->
+            <result name="invalid.token">/login.jsp</result>
+            <result>/index.jsp</result>
+        </action>
+    </package>
+</struts>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <package name="pkg1" extends="json-default">
+        <action name="reg" class="org.action.UserAction" method="reg">
+            <result>/index.jsp</result>
+            <!--当有错误信息，通过name="input"指定要跳转的页面-->
+            <result name="input">/reg.jsp</result>
+        </action>
+
+
+
+
+        <!--ajax验证-->
+        <action name="ajaxReg" class="org.action.UserAction" method="reg">
+            <result type="json">
+                <param name="root">user</param>
+            </result>
+            <!--当有错误时，返回整个fieldError的错误提示信息-->
+            <result name="input" type="json">
+                <param name="root">fieldErrors</param>
+            </result>
+        </action>
+    </package>
+</struts>

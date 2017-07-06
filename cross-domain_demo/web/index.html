@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script>
+        $(function () {
+            $(":button").on("click",function () {
+                var params = $("#f1").serialize();
+                $.get("http://localhost:8080/cross/find",params,function (result) {
+                    var obj = JSON.stringify(result);
+                    alert(obj);
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <form id="f1">
+        userName:<input type="text" name="users.userName" value="user1"><br>
+        password:<input type="password" name="users.password" value="123"><br>
+        <input type="button" value="submit">
+    </form>
+</body>
+</html>

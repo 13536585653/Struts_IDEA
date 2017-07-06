@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/ch01" />
+    <file type="web" url="file://$PROJECT_DIR$/ch02" />
+    <file type="web" url="file://$PROJECT_DIR$/ch03" />
+    <file type="web" url="file://$PROJECT_DIR$/ch04" />
+    <file type="web" url="file://$PROJECT_DIR$/ch05" />
+    <file type="web" url="file://$PROJECT_DIR$/ch06" />
+    <file type="web" url="file://$PROJECT_DIR$/ch07" />
+    <file type="web" url="file://$PROJECT_DIR$/ch08" />
+    <file type="web" url="file://$PROJECT_DIR$/ch09" />
+    <file type="web" url="file://$PROJECT_DIR$/ch10" />
+    <file type="web" url="file://$PROJECT_DIR$/ch11" />
+    <file type="web" url="file://$PROJECT_DIR$/ch12" />
+    <file type="web" url="file://$PROJECT_DIR$/ch13" />
+    <file type="web" url="file://$PROJECT_DIR$/cross-domain_demo" />
+    <file type="web" url="file://$PROJECT_DIR$/cross-domain_demo 【跨域请求】" />
+    <file type="web" url="file://$PROJECT_DIR$/sessionLoginCheck" />
+    <file type="web" url="file://$PROJECT_DIR$/sms_demo" />
+    <file type="web" url="file://$PROJECT_DIR$/use struts to login" />
+    <file type="web" url="file://$PROJECT_DIR$/verification_code" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/cross-domain_demo/pom.xml" />
+        <option value="$PROJECT_DIR$/ch13/pom.xml" />
+      </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/pom.xml" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

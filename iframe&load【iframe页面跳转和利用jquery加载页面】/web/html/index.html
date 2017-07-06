@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>iframeSkip</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-1.9.1.min.js"></script>
+    <style>
+
+        #left{
+            float: left;
+            height:600px;
+            border: solid  1px blue;
+            width: 10%;
+        }
+        #left a{
+            display: inline-block;
+            text-decoration: none;
+            margin: 6px 4px 0 10px;
+            font-family: '微软雅黑';
+            font-size: 15px;
+            color: #8c8c8c;
+        }
+        #right{
+            float: right;
+            background: red;
+            margin-right: 1%;
+            width:88%;
+            height:600px;
+        }
+        #right iframe{
+            width: 100%;
+            height: 100%;
+           /* background: url("../picture/background-image.jpg")repeat-x;*/
+        }
+    </style>
+
+
+
+</head>
+<body>
+    <div style="margin-left:1%;margin-top: 1%;">
+        <div id="left">
+            <h3 style="color: #d58512" class="btn btn-group">菜单切换</h3>
+            <!--这里的target（目标）属性值对应iframe中的name属性值-->
+            <a href="java.html" target="htmlPage">跳转到java页面</a>
+            <a href="net.html" target="htmlPage">跳转到net页面</a>
+            <a href="shop.html" target="htmlPage">跳转到shop页面</a>
+        </div>
+        <div id="right">
+            <!--iframe里面的src属性中的iframe.html是默认加载页面
+            scrolling是滚动条自动
+            name属性值对应上面的target属性值
+            -->
+            <iframe src="../picture/background-image.jpg"  name="htmlPage">
+            </iframe>
+        </div>
+    </div>
+</body>
+</html>

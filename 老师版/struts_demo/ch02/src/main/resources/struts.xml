@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <!-- 在<struts>标签中可以配置多个package，每一个package
+     可以配置多个action,package的作用就是用于管理不同action的一个集合
+     如果多个action中出现同名的请求，那么可以使用package来区分。
+     package有一个属性namespace(命名空间)，这个属性可以配置一个url段，
+     用于区分相同的action请求
+     例如：http://localhost:8080/ch02/namespace地址/action请求url-->
+    <package name="pkg1" extends="struts-default" namespace="/aa">
+        <action name="login" class="org.ch02.action.LoginAction">
+            <result>/index.jsp</result>
+        </action>
+    </package>
+
+    <package name="pkg2" extends="struts-default" namespace="/bb">
+        <action name="login" class="org.ch02.action.Login2Action">
+            <result>/index.jsp</result>
+        </action>
+    </package>
+
+</struts>

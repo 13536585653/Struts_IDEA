@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <package name="pkg" extends="json-default">
+        <action name="sendSms" class="org.sms.action.SmsAtion" method="snedSms">
+            <result type="json">
+                <param name="root">message</param>
+            </result>
+        </action>
+
+        <action name="subInfo" class="org.sms.action.SmsAtion" method="addUserInfo">
+            <result type="json">
+                <param name="root">message</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">message</param>
+            </result>
+        </action>
+    </package>
+</struts>

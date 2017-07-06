@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+    <!--字段校验器的配置风格-->
+    <!--name对应action中的属性-->
+    <field name="user.userName">
+        <!--指定校验规则，通过type指定，可以同时指定多个filed-validator-->
+        <!--requirestring和require都是验证非空-->
+        <!--区别在于，require用于验证null，而requirestring验证null和空字符串，
+        short-chrcuit表示是否设置短路验证，默认是false-->
+        <field-validator type="requiredstring" short-circuit="false">
+            <!--param指定验证规则的参数，这里trim表示去掉首尾空格-->
+            <param name="trim">true</param>
+            <message>用户名不能为空</message>
+        </field-validator>
+    </field>
+
+    <!--密码验证-->
+    <field name="user.password">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message>密码不能为空</message>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="minLength">6</param>
+            <message>密码长度不符合</message>
+        </field-validator>
+    </field>
+
+    <!--年龄验证-->
+    <field name="user.age">
+        <field-validator type="required">
+            <message>请输入年龄</message>
+        </field-validator>
+        <field-validator type="int">
+            <param name="max">100</param>
+            <param name="min">16</param>
+            <message>年龄必须在16-100之间</message>
+        </field-validator>
+    </field>
+
+    <!--出生日期验证-->
+    <field name="user.birth">
+        <field-validator type="required">
+            <message>请输入出生日期</message>
+        </field-validator>
+        <field-validator type="date">
+            <param name="min">1990-01-01</param>
+            <param name="max">2048-12-31</param>
+            <message>日期必须在1990-01-01至2048-12-31之间</message>
+        </field-validator>
+    </field>
+
+    <!--邮箱验证-->
+    <field name="user.email">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message>邮箱不能为空</message>
+        </field-validator>
+        <field-validator type="email">
+            <message>请填写有效的邮箱地址</message>
+        </field-validator>
+    </field>
+
+    <!--身份证验证-->
+    <field name="user.card.cardNum">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message>请填写身份证</message>
+        </field-validator>
+        <!--方式一、使用正则表达式验证身份的有效性
+        <![CDATA[]]>表示让xml解析忽略此内容，不去解析-->
+        <!--<field-validator type="regex">
+            <param name="regexExpression"><![CDATA[/^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$|^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/]]></param>
+            <message>请输入有效的身份证号</message>
+        </field-validator>-->
+
+        <!--方式二：自定义验证规则-->
+        <field-validator type="card">
+            <message>请输入有效的身份证号</message>
+        </field-validator>
+    </field>
+</validators>

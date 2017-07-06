@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script>
+        $(function () {
+            $("#btn").on("click",function () {
+                var param = $("#f1").serialize();
+                $.post("ajaxReg",param,function (result) {
+                    $.each(result, function(key, value){
+                        $("#msg").append("<font color='red'>"+key+":"+value+"</font><br/>");
+                    });
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+<h1 style="color: green">用户注册</h1>
+<div id="msg"></div>
+<form id="f1">
+    userName:<input type="text" name="user.userName" value="狼野"><br>
+    password: <input type="password" name="user.password" value="langYe123"><br>
+    age:<input type="text" name="user.age" value="22"><br>
+    birth:<input type="text" name="user.birth" value="2014-04-23"><br>
+    email:<input type="text" name="user.email" value="786091203@qq.com"><br>
+    cardNum:<input type="text" name="user.card.cardNum" value="36073419950121351X"><br>
+    <input type="button" id="btn" value="button">
+</form>
+</body>
+</html>

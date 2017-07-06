@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="use struts to login:war">
+    <output-path>$PROJECT_DIR$/use struts to login/target</output-path>
+    <root id="archive" name="use struts to login-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="use struts to login:war exploded" />
+    </root>
+  </artifact>
+</component>

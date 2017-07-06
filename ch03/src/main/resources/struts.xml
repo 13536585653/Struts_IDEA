@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <constant name="struts.action.extension" value="action"/>
+    <package name="pkg1" extends="struts-default">
+      <action name="execute" class="org.demo.Test" method="execute">
+            <result name="success">/index.jsp</result>
+        </action>
+    </package>
+
+    <package name="pkg2" extends="struts-default" strict-method-invocation="false">
+        <!--&lt;!&ndash;&lt;!&ndash;当一个action类的不同方法处理不同请求的时候，需要指定method属性，告诉struts，
+        action中的哪一个方法处理当前请求。这样代替了默认的execute方法&ndash;&gt;&ndash;&gt;
+
+        &lt;!&ndash;&lt;!&ndash;处理登录的请求&ndash;&gt;&ndash;&gt;
+        <action name="login" class="org.demo.UserAction" method="login">
+            <result name="success">/index.jsp</result>
+        </action>
+        &lt;!&ndash;&lt;!&ndash;处理注册的请求&ndash;&gt;&ndash;&gt;
+        <action name="register" class="org.demo.UserAction" method="register">
+            <result name="success">/index.jsp</result>
+        </action>-->
+
+
+
+        <!--使用method属性可以大大减少action类的编写。
+        但是避免不了大量的action配置，因此要较少action的配置
+        那么还可以使用动态匹配（也就是通配方式）来配置action。
+        这样我们就可以大量减少action的配置信息-->
+        <action name="user_*" class="org.demo.UserAction" method="{1}">
+            <result name="success">/index.jsp</result>
+        </action>
+    </package>
+</struts>

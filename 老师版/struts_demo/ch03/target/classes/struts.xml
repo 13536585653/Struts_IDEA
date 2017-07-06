@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <package name="pkg" extends="struts-default" strict-method-invocation="false">
+        <!-- 当一个Action类的不同方法处理不同请求的时候，
+         需要指定method属性，告诉struts，
+         Action中的哪一个方法处理当前请求。这样就替代了默认的execute方法-->
+        <!-- 登陆 -->
+        <!--<action name="login" class="org.ch03.action.UserAction" method="login">
+            <result>/login.jsp</result>
+        </action>-->
+        <!-- 注册 -->
+        <!--<action name="reg" class="org.ch03.action.UserAction" method="reg">
+            <result>/reg.jsp</result>
+        </action>-->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <!-- 使用method属性可以大大减少Action类的编写。
+         但是避免不了大量的action配置,因此要较少action的配置
+         那么可以使用动态匹配（也就是通配的方式）来配置action。
+         这样我们就可以大量减少action的配置信息
+         注意：如果使用通配模式，需要在package上配置
+         strict-method-invocation="false"-->
+        <action name="user*" class="org.ch03.action.UserAction" method="{1}">
+            <result>{1}.jsp</result>
+        </action>
+    </package>
+
+</struts>

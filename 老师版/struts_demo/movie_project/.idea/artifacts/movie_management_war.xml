@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="movie_management:war">
+    <output-path>$PROJECT_DIR$/movie_management/target</output-path>
+    <root id="archive" name="movie_management-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="movie_management:war exploded" />
+    </root>
+  </artifact>
+</component>

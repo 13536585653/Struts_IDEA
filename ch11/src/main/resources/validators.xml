@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+        "-//Apache Struts//XWork Validator Definition 1.0//EN"
+        "http://struts.apache.org/dtds/xwork-validator-definition-1.0.dtd">
+<validators>
+    <!--配置自定义规则的实现类，name表示规则的名称（自定义），class表示自定义规则的实现-->
+    <validator name="card" class="org.validator.CardValidator"/>
+</validators>

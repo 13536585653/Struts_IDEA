@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login page</title>
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+    <script>
+        $(function(){
+            $(":button").on("click",function(){
+                var params = $("#f1").serialize();
+                $.post("login", params, function(result){
+                    if(result.message != undefined){
+                        alert(result.message);
+                    }else{
+                        alert("验证通过，"+JSON.stringify(result));
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <form id="f1">
+        Username:<input type="text" name="user.userName"/><br/>
+        Password:<input type="password" name="user.password"/><br/>
+        <input type="button" value="login"/><br/>
+    </form>
+</body>
+</html>

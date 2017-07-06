@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>手机注册</title>
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script>
+        $(function(){
+            $("#smsbtn").on("click",function(){
+                var tel = $("#tel").val();
+                $.post("sendSms",{"tel":tel});
+            });
+            $("#subbtn").on("click",function(){
+                var param = $("#f").serialize();
+                $.post("subInfo",param,function(result){
+                    alert(result);
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <form id="f">
+        手机号码:<input type="text" id="tel" name="tel"/><br/>
+        短信验证码:<input type="text" id="code" name="code"/>
+        <input type="button" id="smsbtn" value="获取验证码"/><br/>
+        <input type="button" id="subbtn" value="提交"/>
+    </form>
+</body>
+</html>

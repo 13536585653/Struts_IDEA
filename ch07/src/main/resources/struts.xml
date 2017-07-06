@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <package name="struts" extends="struts-default">
+        <!--自定义拦截器-->
+        <interceptors>
+            <!--name给拦截器指定引用别名-->
+            <interceptor name="login" class="org.interceptor.LoginInterceptor"/>
+            <interceptor name="test" class="org.interceptor.TestInterceptor"/>
+            <!--自定义拦截器栈，同时可以用多个拦截器
+            注意：如果引用了自定义的拦截器，那么将会覆盖默认的拦截器栈
+            也就是defaultStack，这时将失去拦截栈的功能。
+            例如：表单自动映射是不成功的。
+            为了解决这个问题，我们就必须在自定义拦截器栈再去引用默认的拦截器-->
+            <interceptor-stack name="myStack">
+                <interceptor-ref name="login"/>
+                <interceptor-ref name="test"/>
+                <interceptor-ref name="defaultStack"/>
+            </interceptor-stack>
+        </interceptors>
+
+
+
+        <!--配置action，在这里引用上面配置的interceptor-->
+        <action name="login" class="org.action.UserAction" method="login">
+            <!--引用拦截器，name的值对应拦截器配置的name属性
+            (注意：只有在action中引用了拦截器，他才会生效),
+            同时可以引用多个拦截器-->
+            <!--<interceptor-ref name="login"/>
+            <interceptor-ref name="test"/>-->
+
+            <!--也可以引用一个拦截器栈-->
+            <interceptor-ref name="myStack"/>
+            <result name="login">/index.jsp</result>
+        </action>
+        <action name="reg" class="org.action.UserAction" method="reg">
+            <interceptor-ref name="test"/>
+            <result name="reg">/index.jsp</result>
+        </action>
+    </package>
+</struts>

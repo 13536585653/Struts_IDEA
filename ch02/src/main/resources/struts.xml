@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+
+<struts>
+    <!--namespace属性是用来区分当有多个action请求，
+    并且action里面的name属性值又相的情况，这个时候应该再建一个package，写上属性namespace
+    例：http://localhost:8080/ch02/pkg2/login-->
+    <package name="pkg1" extends="struts-default" namespace="/pkg1">
+        <action name="login" class="org.demo.Login" method="execute">
+            <result name="success">/index.jsp</result>
+        </action>
+    </package>
+
+    <package name="pkg2" extends="struts-default" namespace="/pkg2">
+        <action name="login" class="org.demo.Login2" method="execute">
+            <result name="success">/index.jsp</result>
+        </action>
+    </package>
+</struts>
